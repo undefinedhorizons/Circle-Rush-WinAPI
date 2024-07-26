@@ -7,7 +7,7 @@
 `Esc`: выход из игры
 
 **Билд игры:**  
-[По ссылке](https://github.com/undefinedhorizons/Circle-Rush-WinAPI/releases/download/0.1/Circle-Rush-WinAPI.0.1.exe) или во вкладке Releases
+[По ссылке](https://github.com/undefinedhorizons/Circle-Rush-WinAPI/releases/download/0.2/Circle-Rush-WinAPI.0.2.exe) или во вкладке Releases
 
 **Инструкция по сборке проекта:**  
 Открыть проект в Visual Studio Community 2022.
