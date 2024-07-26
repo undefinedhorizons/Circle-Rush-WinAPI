@@ -21,12 +21,12 @@ static bool collisionCir2Cir(struct Point o1, int r1, struct Point o2, int r2) {
 }
 
 Things::Things(Render& render) : render(render) {
-    int heigth = render.getHeigth();
+    int height = render.getHeigth();
     
     count = 0;
 
-    min = heigth / 2 - 50 - THING_RADIUS;
-    max = heigth / 2 + 50 + THING_RADIUS;
+    min = height / 2 - 50 - THING_RADIUS;
+    max = height / 2 + 50 + THING_RADIUS;
     
     array.push_back({BAD, {-THING_RADIUS, random(min, max)}});
 };

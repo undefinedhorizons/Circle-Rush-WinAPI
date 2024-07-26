@@ -20,7 +20,7 @@ int Render::getWidth() {
     return SCREEN_WIDTH;
 }
 
-int Render::getHeigth() {
+int Render::getHeight() {
     return SCREEN_HEIGHT;
 }
 

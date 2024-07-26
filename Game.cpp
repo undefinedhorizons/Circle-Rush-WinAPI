@@ -86,7 +86,7 @@ void draw()
 
     if (isGameOver) {
         auto center = render->getCenter();
-        render->DrawString("GAME OVER", center.x - 4*4*8, 3 * render->getHeigth() / 4, {7, 25, 82, 0});
+        render->DrawString("GAME OVER", center.x - 4*4*8, 3 * render->getHeight() / 4, {7, 25, 82, 0});
     }
        
 }
