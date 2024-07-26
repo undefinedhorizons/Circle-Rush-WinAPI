@@ -33,3 +33,7 @@
 
 # Visual Studio
 .vs
+
+# Build folders
+GameTemplate/
+x64/
