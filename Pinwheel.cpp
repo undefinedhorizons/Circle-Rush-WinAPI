@@ -10,6 +10,7 @@ Pinwheel::Pinwheel(Render& render) : render(render){
 void Pinwheel::act(float dt) {
     static float refresh_time = 0.;
     static float refresh_time_mark = 0.;
+    static float refresh_time_click = 0.;
 
     refresh_time += dt;
 
@@ -45,6 +46,14 @@ void Pinwheel::act(float dt) {
         marks.push_back({MARK_RADIUS, pt2});
 
         mutex.unlock();
+    }
+
+    refresh_time_click += dt;
+
+    if (refresh_time_click >= CLICK_TIME) {
+        refresh_time_click = 0.;
+        if (is_mouse_button_pressed(0))
+            da *= -1;
     }
 
     if (is_key_pressed(VK_LEFT))

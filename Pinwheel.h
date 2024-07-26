@@ -25,6 +25,7 @@ class Pinwheel {
     const struct RGBAColor CIRCLE_COLOR = {255, 255, 255, 0};
     const struct RGBAColor CIRCLE_COLOR2 = {255, 255, 255, 0};
     const float REFRESH_TIME = 0.005f;
+    const float CLICK_TIME = 0.1f;
 
     const int MARK_RADIUS = 5;
     const float MARK_TIME = 0.1f;

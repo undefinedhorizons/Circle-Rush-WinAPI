@@ -73,9 +73,6 @@ void act(float dt)
     
     pinwheel->act(dt);
 
-
-
-    
 }
 
 // fill buffer in this function
