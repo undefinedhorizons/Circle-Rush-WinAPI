@@ -4,7 +4,7 @@
 
 
 void Board::draw() {
-    render.fillRectangle({0, 0, render.getWidth(), render.getHeigth()}, BOARD_COLOR);
+    render.fillRectangle({0, 0, render.getWidth(), render.getHeight()}, BOARD_COLOR);
 
     render.fillCircle(100, render.getCenter(), BOARD_COLOR2);
 

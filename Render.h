@@ -19,7 +19,7 @@ struct Rect {
 
 struct Render {
     int getWidth();
-    int getHeigth();
+    int getHeight();
 
     struct Point getCenter();
 

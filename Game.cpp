@@ -58,20 +58,22 @@ void act(float dt)
         return;
     
     // logic
+    switch (things->act(dt, *pinwheel)) {
+    case GOOD:
+        board->setScore(++score);
+        break;
+
+    case BAD:
+        isGameOver = true;
+        break;
+
+    default:
+        break;
+    }
+    
     pinwheel->act(dt);
 
-    switch (things->act(dt, *pinwheel)) {
-        case GOOD:
-            board->setScore(++score);
-            break;
-        
-        case BAD:
-            isGameOver = true;
-            break;
-        
-        default:
-            break;
-    }
+
 
     
 }

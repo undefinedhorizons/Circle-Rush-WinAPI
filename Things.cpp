@@ -1,5 +1,3 @@
-
-
 #include "Things.h"
 
 static int random(int min, int max)  // range : [min, max]
@@ -20,8 +18,25 @@ static bool collisionCir2Cir(struct Point o1, int r1, struct Point o2, int r2) {
     return distance <= r1 + r2;
 }
 
+static bool collisionCir2Square(struct Point o, int r, Rect& rect) {
+    Point circleDistance;
+    circleDistance.x = abs(o.x - rect.x);
+    circleDistance.y = abs(o.y - rect.y);
+
+    if (circleDistance.x > (rect.width / 2 + r)) { return false; }
+    if (circleDistance.y > (rect.height / 2 + r)) { return false; }
+
+    if (circleDistance.x <= (rect.width / 2)) { return true; }
+    if (circleDistance.y <= (rect.height / 2)) { return true; }
+
+    double cornerDistance_sq = (circleDistance.x - rect.width / 2) ^ 2 +
+        (circleDistance.y - rect.height / 2) ^ 2;
+
+    return (cornerDistance_sq <= (r * r));
+}
+
 Things::Things(Render& render) : render(render) {
-    int height = render.getHeigth();
+    int height = render.getHeight();
     
     count = 0;
 
@@ -65,8 +80,11 @@ enum ThingType Things::act(float dt, const Pinwheel& pw) {
                     break;
                 }
             } else if (it->type == BAD) {
-                if (collisionCir2Cir(pw.pt1, THING_RADIUS, it->position, THING_RADIUS) ||
-                    collisionCir2Cir(pw.pt2, THING_RADIUS, it->position, THING_RADIUS)) {
+                int x = it->position.x;
+                int y = it->position.y;
+                Rect rect = { x, y, THING_RADIUS, THING_RADIUS };
+                if (collisionCir2Square(pw.pt1, THING_RADIUS, rect) ||
+                    collisionCir2Square(pw.pt2, THING_RADIUS, rect)) {
                     // it = array.erase(it);
                     count = (count + 1) % COUNT_MAX;
                     array.push_back({count == GOOD ? GOOD : BAD, {-THING_RADIUS, random(min, max)}});
